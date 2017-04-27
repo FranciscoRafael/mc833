@@ -5,10 +5,9 @@
 #include <netdb.h>
 
 #define LISTEN_PORT 5400
-#define MAX_PENDING 5
 #define MAX_LINE 256
 
-int main() {
+int main(int argc, char * argv[]) {
 	
 	struct hostent *host_address;
   	struct sockaddr_in socket_address;
@@ -28,25 +27,13 @@ int main() {
 
 		
 	host_address = gethostbyname(argv[1]); 
-	
 
 	while(1) { 
-        /* criaÃ§Ã£o da estrutura de dados de endereÃ§o */
-  	bzero((char *)&socket_address, sizeof(socket_address));
 
+  		bzero((char *)&socket_address, sizeof(socket_address));
+				
 
-        /* criaÃ§Ã£o de socket passivo */
-
-
-	/* Associar socket ao descritor */
-
-
-	/* Criar escuta do socket para aceitar conexÃµes */
-
-
-        /* aguardar/aceita conexÃ£o, receber e imprimir texto na tela, enviar eco */
-
-	}
+		}
 
 }
 

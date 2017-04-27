@@ -9,8 +9,10 @@
 
 #define SERVER_PORT 5400
 #define MAX_LINE 256
+#define MAX_PENDING 5
 
-int main(int argc, char * argv[]) {
+
+int main() {
       
 	struct hostent *host_address;
  	struct sockaddr_in socket_address, client_address; 
@@ -46,7 +48,7 @@ int main(int argc, char * argv[]) {
 	else { 
 		printf("Bind correto\n"); 
 	}
-	if(listen(socket_fd, 3)  == -1) { 
+	if(listen(socket_fd, MAX_PENDING)  == -1) { 
 		printf("Erro listen\n"); 
 		exit(1); 
 	}
