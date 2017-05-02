@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <netdb.h>
 
-#define LISTEN_PORT 545
+#define LISTEN_PORT 6000
 #define MAX_LINE 256
 
 int main(int argc, char * argv[]) {
@@ -30,22 +30,33 @@ int main(int argc, char * argv[]) {
 
   	bzero((char *)&socket_address, sizeof(socket_address));
     socket_address.sin_family = AF_INET;
-
     bcopy((char *) host_address->h_addr, (char *) &socket_address.sin_addr.s_addr, host_address->h_length);
     socket_address.sin_port = htons(LISTEN_PORT);  
 
 
     conn = connect(socket_fd, (struct sockaddr *)&socket_address, sizeof(socket_address));
 
-      while(1)
-    {
-        printf("Enter message : ");
-        scanf("%s" , buf);
+    if(conn < 0) {
+    	printf("Nao foi possivel conectar ao servidor\n");
+
+    }
+    else { 
+    	printf("Conexao realizada com sucesso\n"); 
+    }
+
+   	while(1) {
+    	printf("Enter message : ");
+        gets(buf);
 
 		send(socket_fd , buf , strlen(buf), 0);
-        recv(socket_fd, server_msg , strlen(buf) , 0);
-        puts("Server reply :");
-        puts(server_msg);
+        recv(socket_fd, server_msg , MAX_LINE , 0);
+       	printf("Server eco: ");
+       	for(int i = 0; i < strlen(buf); i++) {
+       		printf("%c", buf[i]);
+       	}
+       	printf("\n\n");
+       	bzero(buf, MAX_LINE);
+
     }
      
     close(socket_fd);
