@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <netdb.h>
+#include <stdlib.h>
 
 #define LISTEN_PORT 6000
 #define MAX_LINE 256
@@ -12,9 +13,8 @@ int main(int argc, char * argv[]) {
 	struct hostent *host_address;
   	struct sockaddr_in socket_address;
    	char buf[MAX_LINE], server_msg[MAX_LINE]; 
-   	unsigned int len;
-   	int socket_fd, new_s;
-   	int binds, conn; 
+   	int socket_fd; 
+   	int conn; 
 
 	socket_fd = socket(AF_INET, SOCK_STREAM, 0);
 	
