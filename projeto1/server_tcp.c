@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <netdb.h>
 
-#define LISTEN_PORT 6000
+#define LISTEN_PORT 5400
 #define MAX_PENDING 5
 #define MAX_LINE 256
 
