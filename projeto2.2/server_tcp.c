@@ -1,148 +1,127 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <netdb.h>
 #include <sys/select.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/time.h> 
+#include <errno.h>
+#include <sys/types.h>
 
-#define LISTEN_PORT 6500
+
+
+
+#define SERVER_PORT 5845
+#define MAX_CLIENTS 50
+#define FALSE 0
+#define TRUE 1
 #define MAX_PENDING 5
 #define MAX_LINE 256
 
-int main() {
+int main() { 
 
-    struct sockaddr_in socket_address, client, info;
-    char buf[MAX_LINE];
-    unsigned int len;
-    int s, new_s, aux = 0, r, len_info; 
+
+    int sockfd, len, new_sockfd, i, act, r, size_table; 
+    int k, opt = TRUE, len_info;
+    struct sockaddr_in server, info, client; 
+    char buf[MAX_LINE]; 
     char tam[INET_ADDRSTRLEN];
-	fd_set todos_descritores, desc_aux; 
-	int maxfd, n_cliente; 
-	int cliente[FD_SETSIZE], rd, i, sockfd; 
+    fd_set fds, c_fds; 
 
 
-    bzero((char *)&socket_address, sizeof(socket_address));
+    sockfd = socket(AF_INET, SOCK_STREAM, 0); 
+    if(sockfd == 0) {
+        perror("Erro ao criar o socket"); 
+        exit(1); 
+    }     
 
-    // criacao de um socket do servidor 
-    s = socket(AF_INET, SOCK_STREAM, 0);
-       
+    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, (char*)&opt, sizeof(opt));
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+    server.sin_port = htons(SERVER_PORT);
 
-   	// verifica se o socket foi criado corretamente 
-    if(s == -1) { 
-        printf("Erro ao criar o socket\n");
+    k = bind(sockfd, (struct sockaddr *)&server, sizeof(server)); 
+    if(k < 0) { 
+        perror("Erro no binding"); 
+        exit(1);           
+    }
+    k = listen(sockfd, MAX_PENDING);
+    if(k < 0) { 
+        perror("Erro no listen");
         exit(1); 
     }
-    else { 
-        printf("Socket criado com sucesso\n"); 
+
+    size_table = MAX_CLIENTS; 
+
+    len = sizeof(client); 
+    printf("Esperando Conexoes\n"); 
+    
+
+    FD_ZERO(&fds); 
+    FD_SET(sockfd, &fds); 
+
+    
+    while(TRUE) {
+        c_fds = fds;
+        act = select(size_table, &c_fds, NULL, NULL, NULL); 
+        if(act < 0) {
+            perror("Erro no select"); 
+            exit(1); 
+        }
+
+        if(FD_ISSET(sockfd, &c_fds)) {
+            new_sockfd = accept(sockfd, (struct sockaddr *)&client, (socklen_t*)&len); 
+            if(new_sockfd < 0) {
+                perror("Erro ao aceitar clients"); 
+                exit(1);
+            }
+            printf("Conxeao aceita com sucesso\n"); 
+            getpeername(new_sockfd, (struct sockaddr *)&info, (socklen_t*)&len_info);
+            inet_ntop(AF_INET, &info.sin_addr, tam, sizeof(tam));
+            printf("IP - Remoto: %s\nPorta - Remota: %i\n\n", tam, ntohs(info.sin_port));
+
+            if(new_sockfd < 0)
+                continue; 
+
+            FD_SET(new_sockfd, &fds); 
+            continue;
+
+        }
+
+        for(i = 0; i < size_table; i++) { 
+            if(i != sockfd && FD_ISSET(i, &c_fds)) { 
+                bzero(buf, MAX_LINE);
+                r = read(i, buf, MAX_LINE);
+                if(r == 0) {
+                    getpeername(i, (struct sockaddr *)&info, (socklen_t*)&len_info);
+                    printf("Desconectou, IP %s, Porta %d \n",   inet_ntoa(info.sin_addr) , ntohs(info.sin_port)); 
+                    close(i); 
+                    FD_CLR(i, &fds);
+                }
+                else { 
+                    getpeername(i, (struct sockaddr *)&info, (socklen_t*)&len_info);
+                    printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
+                    printf("Mensagem: ");
+                    for(k = 0; k < strlen(buf); k++) { 
+                            printf("%c", buf[k]);   
+                    }
+                    printf("\n"); 
+                    write(i, buf, strlen(buf));
+                    printf("Eco enviado\n\n");
+                    bzero(buf, MAX_LINE);
+
+                }        
+
+            }
+
+        }
+
+
     }
 
-    //inicializacao das estruturas de dados do sockaddr do servidor 
-    socket_address.sin_family = AF_INET;
-	socket_address.sin_addr.s_addr = INADDR_ANY;
-    socket_address.sin_port = htons(LISTEN_PORT); 	
+    return 0; 
 
-
-    // processo de bind, verifica se pode associar o socket a porta
-    aux = bind(s,(struct sockaddr *)&socket_address , sizeof(socket_address));
-
-
-    if(aux < 0) {
-        printf("Erro no binding\n"); 
-       		exit(1); 
-    }
-    else {
-       	printf("Bind efetuado com sucesso\n"); 
-    }
-
-    // habilita o socket para receber conexoes
-    aux = listen(s, MAX_PENDING); 
-    if(aux < 0) { 
-    	printf("Erro no listen\n"); 
-		exit(1);		
-	}
-	else { 
-		printf("Listen realizado com sucesso\n");
-	}
-
-	printf("Esperando conexao\n");
-
-
-
-	len = sizeof(struct sockaddr_in); 
-	len_info = sizeof(struct sockaddr_in);
-	maxfd = s; 	
-	n_cliente = -1; 
-	for(i = 0; i < FD_SETSIZE; i++) {
-		cliente[i] = -1; 
-	}
-
-	FD_ZERO(&todos_descritores); 
-	FD_SET(s, &todos_descritores); 
-
-	while (1) { 
-		desc_aux = todos_descritores; 
-		r = select(maxfd+1, &desc_aux, NULL, NULL, NULL); 
-		if(r < 0) {
-			printf("Erro no select\n");
-			exit(1);	 
-		}
-		if(FD_ISSET(s, &desc_aux)) {
-			new_s = accept(s, (struct sockaddr *)&socket_address, &len); 
-			if(new_s < 0) { 
-				printf("Erro ao aceitar o cliente\n"); 
-				exit(1);
-			}
-			for(i = 0; i < FD_SETSIZE; i++) {
-				if(cliente[i] < 0) { 
-					cliente[i] = new_s; 
-					break;
-				}
-			}
-			if(i == FD_SETSIZE) { 
-				printf("Limite máximo de clientes atingidos\n");
-				exit(1);
-			}
-			FD_SET(new_s, &todos_descritores); 
-			if(new_s < maxfd) 
-				maxfd = new_s;
-			if(i > n_cliente)		
-				n_cliente = i;
-			if(--r <= 0)
-				continue;	
-											
-		}
-		for(i = 0; i <= n_cliente; i++) {
-			sockfd = cliente[i]; 
-			if(sockfd < 0) 
-				continue; 
-			if(FD_ISSET(sockfd, &desc_aux)) {
-				bzero(buf, MAX_LINE); 
-				rd = recv(sockfd, buf, sizeof(buf), 0); 
-				if(rd == 0) {
-					close(sockfd);
-					FD_CLR(sockfd, &todos_descritores); 
-					cliente[i] = -1; 
-				}
-				else { 
-					getpeername(new_s, (struct sockaddr *)&info, (socklen_t*)&len_info);
-					inet_ntop(AF_INET, &info.sin_addr, tam, sizeof(tam));
-					printf("IP - Remoto: %s\nPorta - Remota: %i\n\n", tam, ntohs(info.sin_port));
-					printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
-					printf("Mensagem: ");
-					for(int i = 0; i < strlen(buf); i++) { 
-						printf("%c", buf[i]); 	
-					}
-					printf("\n"); 
-					write(new_s, buf, strlen(buf));
-					printf("Eco enviado\n\n");
-					bzero(buf, MAX_LINE);
-				}
-				if(--r <= 0) 
-					break; 
-			}
-		}								
-	}	
-}		
-
+}

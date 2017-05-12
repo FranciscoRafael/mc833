@@ -5,7 +5,7 @@
 #include <netdb.h>
 #include <stdlib.h>
 
-#define LISTEN_PORT 6500
+#define LISTEN_PORT 5845
 #define MAX_LINE 256
 
 int main(int argc, char * argv[]) {
