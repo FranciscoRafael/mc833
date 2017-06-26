@@ -4,9 +4,22 @@
 #include <unistd.h>
 #include <netdb.h>
 
-#define LISTEN_PORT 7000
+#define LISTEN_PORT 6000
 #define MAX_PENDING 5
 #define MAX_LINE 256
+
+
+typedef struct Client { 
+
+    char tipo; 
+    char direcao; 
+    char ID; 
+    int tamanho; 
+    int velocidade; 
+
+}Carro;
+
+
 
 int main() {
 
@@ -16,9 +29,26 @@ int main() {
     int s, new_s, aux = 0, r, len_info; 
     char tam[INET_ADDRSTRLEN];
     int pid; 
+    Carro *carro; 
+    int n; 
+    scanf("%d", &n); 
+    carro = malloc(sizeof(Carro)*n);
+    int count_car = 0; 
+   
 
+ /*   printf("%c\n", te);
+    printf("%c\n", vel);
+    carro[count_car].tipo = 'S'; 
+	carro[count_car].ID = 'A';
+	carro[count_car].direcao = 'R';
+	carro[count_car].tamanho = te - '0';
+	carro[count_car].velocidade = 10*(vel - '0'); 		
+	printf("ID: %c\n", carro[count_car].ID);
+	printf("direcao: %c\n", carro[count_car].direcao);
+	printf("Tamanho: %d\n", carro[count_car].tamanho);
+	printf("Velocidade: %d k/h\n", carro[count_car].velocidade);
 
-
+	*/
     bzero((char *)&socket_address, sizeof(socket_address));
 
     // criacao de um socket do servidor 
@@ -101,6 +131,21 @@ int main() {
 					printf("%c", buf[i]); 	
 				}
 				printf("\n"); 
+				printf("\n"); 
+
+				if(buf[0] == 'S') { 
+					carro[count_car].tipo = buf[0]; 
+					carro[count_car].ID = buf[2];
+					carro[count_car].direcao = buf[4];
+					carro[count_car].tamanho = (buf[6] - '0');
+					carro[count_car].velocidade = 10*(buf[8] - '0'); 		
+				}
+				printf("ID: %c\n", carro[count_car].ID);
+				printf("direcao: %c\n", carro[count_car].direcao);
+				printf("Tamanho: %d\n", carro[count_car].tamanho);
+				printf("Velocidade: %d\n k/h", carro[count_car].velocidade);
+				printf("\n"); 
+
 				write(new_s, buf, strlen(buf));
 				printf("Eco enviado\n\n");
 				bzero(buf, MAX_LINE);
@@ -112,4 +157,3 @@ int main() {
 		}
 	}
 }		
-

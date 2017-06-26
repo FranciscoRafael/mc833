@@ -95,14 +95,14 @@ int main() {
 				// loop que fica lendo as mensagens de um socket e enviando o ECO
 				recv(new_s, buf, MAX_LINE, 0);
 
-				printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
+				//printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
 				printf("Mensagem: ");
 				for(int i = 0; i < strlen(buf); i++) { 
 					printf("%c", buf[i]); 	
 				}
 				printf("\n"); 
-				write(new_s, buf, strlen(buf));
-				printf("Eco enviado\n\n");
+				//write(new_s, buf, strlen(buf));
+				//printf("Eco enviado\n\n");
 				bzero(buf, MAX_LINE);
 			}
 			
