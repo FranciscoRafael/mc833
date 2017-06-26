@@ -4,10 +4,12 @@
 #include <unistd.h>
 #include <netdb.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
 #define LISTEN_PORT 6000
 #define MAX_LINE 256
 
+double timeval_sub (struct timeval *result, struct timeval *x, struct timeval *y); 
 
 int main(int argc, char * argv[]) {
     
@@ -17,33 +19,12 @@ int main(int argc, char * argv[]) {
     int socket_fd; 
     int conn, len_info;
     char tam[INET_ADDRSTRLEN];
+	struct timeval tv1, tv2, diff; 
+	long long delta; 
+
+	// ID, POSICAO INICIAL, DIRECAO (0 - X, 1 - Y), TAMANHO, VELOCIDADE
 
 
-    FILE *fp;
-    char *l, aux;  
-
-    fp = fopen("car1.txt", "r"); 
-    int z = 0;  
-    while(fscanf(fp, "%c", &aux) != EOF) { 
-        z++; 
-    }
-
-    l = malloc(z*sizeof(char)); 
-    z = 0; 
-    rewind(fp);
-    while(fscanf(fp, "%c", &aux) != EOF) {
-        l[z] = aux; 
-        z++; 
-    } 
-
-    printf("%c\n", l[0]); 
-    printf("%c\n", l[2]); 
-    printf("%c\n", l[4]); 
-    printf("%c\n", l[6]); 
-    printf("%c\n", l[8]); 
-
-
-    fclose(fp); 
     // criação de um Socket do cliente
     socket_fd = socket(AF_INET, SOCK_STREAM, 0);
     
@@ -93,16 +74,33 @@ int main(int argc, char * argv[]) {
     while(1) {
         printf("Enter message : ");
         gets(buf);
-
+		
+		gettimeofday(&tv1, NULL);
+	
         send(socket_fd , l , strlen(l), 0);
         recv(socket_fd, server_msg , MAX_LINE , 0);
+
+		gettimeofday(&tv2, NULL);
+		
+   		diff.tv_sec = tv2.tv_sec - tv1.tv_sec;
+   		diff.tv_usec = tv2.tv_usec + (1000000 - tv1.tv_usec);
+
+   		while(diff.tv_usec > 1000000) {
+      		diff.tv_sec++;
+      		diff.tv_usec -= 1000000;
+   		}
+		delta = diff.tv_usec; 
+		char buffer[20]; 
+		sprintf(buffer, "%ld", delta); 
+
         printf("Server eco: ");
+
         for(int i = 0; i < strlen(l); i++) {
             printf("%c", l[i]);
         }
         printf("\n\n");
 
-    }
+	}
      
     close(socket_fd);
     return 0;
