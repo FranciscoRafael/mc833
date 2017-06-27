@@ -11,12 +11,15 @@
 #define TRUE 1
 #define MAX_PENDING 5
 #define MAX_LINE 256
+#define UDP_PORT 7800
+#define MSG_UDP_TAM 50
 
 typedef struct Client { 
 
     char tipo; 
-    char direcao; 
     char ID; 
+    int pos_inicial; 
+    char direcao; 
     int tamanho; 
     int velocidade; 
 
@@ -24,7 +27,10 @@ typedef struct Client {
 
 
 int existe_carro(Carro *carro, char ID, int n); 
+int re_index(Carro *carro, char ID, int n); 
 void imprime(Carro* carro, int n);  
+
+
 int n = 50; 
 Carro carro[50]; 
 int count_car = 0; 
@@ -33,12 +39,11 @@ int main() {
 
 
     int sockfd, len, new_sockfd, i, act, r, size_table; 
-    int k, opt = TRUE, len_info;
+    int k, opt = TRUE, len_info, q; 
     struct sockaddr_in server, info, client; 
     char buf[MAX_LINE]; 
     char tam[INET_ADDRSTRLEN];
     fd_set fds, c_fds; 
-
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if(sockfd == 0) {
@@ -116,18 +121,24 @@ int main() {
                     for(k = 0; k < strlen(buf); k++) { 
                             printf("%c", buf[k]);   
                     }
-					if(existe_carro(carro, buf[2], count_car) == 0) {                     
+					if(existe_carro(carro, buf[1], count_car) == 0) {                     
 				    	if(buf[0] == 'S') { 
 					    	carro[count_car].tipo = buf[0]; 
-					    	carro[count_car].ID = buf[2];
-					    	carro[count_car].direcao = buf[4];
-					    	carro[count_car].tamanho = (buf[6] - '0');
-					    	carro[count_car].velocidade = 10*(buf[8] - '0'); 	
+					    	carro[count_car].ID = buf[1];
+                            carro[count_car].pos_inicial = (buf[2] - '0');
+					    	carro[count_car].direcao = buf[3];
+					    	carro[count_car].tamanho = (buf[4] - '0');
+					    	carro[count_car].velocidade = (buf[5] - '0'); 	
 					    	count_car++; 
-
 				    	}
-				   
 	            	}
+                    else { 
+
+                        q = re_index(carro, buf[1], count_car);  
+                        carro[q].pos_inicial = (buf[2] - '0'); 
+                        carro[q].velocidade = (buf[5] - '0'); 
+
+                    }
 
                     printf("\n"); 
 					imprime(carro, count_car);
@@ -152,12 +163,14 @@ void imprime(Carro* carro, int n) {
 
 	for(int i = 0; i < n; i++) {
 		printf("ID: %c\n", carro[i].ID);
+        printf("posicao: %d\n", carro[i].pos_inicial); 
 		printf("direcao: %c\n", carro[i].direcao);
 		printf("Tamanho: %d\n", carro[i].tamanho);
 		printf("Velocidade: %d k/h\n", carro[i].velocidade);
 		printf("\n"); 
 	}
-	
+    printf("%d\n", n); 
+	printf("--------------------------------------------------\n"); 
 }
 
 
@@ -173,3 +186,14 @@ int existe_carro(Carro *carro, char ID, int n) {
     return 0; 
 }
 
+int re_index(Carro *carro, char ID, int n) {
+
+    int i; 
+    for(i =0; i < n; i++) { 
+        if(carro[i].ID == ID) {
+            return i;
+        }
+    }
+
+    return 0; 
+}

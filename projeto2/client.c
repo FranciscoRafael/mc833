@@ -20,9 +20,25 @@ int main(int argc, char * argv[]) {
     int conn, len_info;
     char tam[INET_ADDRSTRLEN];
 	struct timeval tv1, tv2, diff; 
-	long long delta; 
+	long delta; 
+    char *l; 
+    char c; 
+    int tam_l;
 
-	// ID, POSICAO INICIAL, DIRECAO (0 - X, 1 - Y), TAMANHO, VELOCIDADE
+    tam_l = argc - 2;
+    l = calloc(tam_l, sizeof(char)); 
+    l[0] = argv[2][0];
+    l[1] = argv[3][0];
+    l[2] = argv[4][0];
+    l[3] = argv[5][0];
+    l[4] = argv[6][0];
+    l[5] = argv[7][0];
+
+    for (int k = 0; k < tam_l; k++) {
+        printf("%c ", l[k]); 
+    }
+    printf("\n"); 
+	// Tipo, ID, POSICAO INICIAL, DIRECAO (0 - X, 1 - Y), TAMANHO, VELOCIDADE
 
 
     // criação de um Socket do cliente
@@ -96,10 +112,14 @@ int main(int argc, char * argv[]) {
         printf("Server eco: ");
 
         for(int i = 0; i < strlen(l); i++) {
-            printf("%c", l[i]);
+            printf("%c ", l[i]);
         }
         printf("\n\n");
 
+        int vel = (l[5] - '0'); 
+        int pos = (l[2] - '0'); 
+        pos = pos + vel; 
+        l[2] = pos + '0';
 	}
      
     close(socket_fd);
