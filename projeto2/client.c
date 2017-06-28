@@ -8,38 +8,36 @@
 
 #define LISTEN_PORT 6000
 #define MAX_LINE 256
+#define UDP_PORT 7800
+#define MAX_TAM_UDP 50
 
-double timeval_sub (struct timeval *result, struct timeval *x, struct timeval *y); 
+void client_udp (char *l, int argc, char *argv[]) {
 
-int main(int argc, char * argv[]) {
-    
+    int clientUDPSocket, nBytes;
+    char buf[MAX_TAM_UDP];
+    struct sockaddr_in serverAddr;
+    socklen_t addr_size;
+    clientUDPSocket = socket(PF_INET, SOCK_DGRAM, 0);
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(UDP_PORT);
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);  
+    addr_size = sizeof serverAddr;
+    sendto(clientUDPSocket,l,strlen(l) + 1,0,(struct sockaddr *)&serverAddr,addr_size);
+    recvfrom(clientUDPSocket,buf,MAX_TAM_UDP,0,NULL, NULL);
+    printf("Mensagem do Servidor: %s\n",buf);
+
+}
+void client_tcp (char *l, int argc, char * argv[]) { 
+
     struct hostent *host_address;
     struct sockaddr_in socket_address, info; 
     char buf[MAX_LINE], server_msg[MAX_LINE]; 
     int socket_fd; 
     int conn, len_info;
     char tam[INET_ADDRSTRLEN];
-	struct timeval tv1, tv2, diff; 
-	long delta; 
-    char *l; 
-    char c; 
-    int tam_l;
-
-    tam_l = argc - 2;
-    l = calloc(tam_l, sizeof(char)); 
-    l[0] = argv[2][0];
-    l[1] = argv[3][0];
-    l[2] = argv[4][0];
-    l[3] = argv[5][0];
-    l[4] = argv[6][0];
-    l[5] = argv[7][0];
-
-    for (int k = 0; k < tam_l; k++) {
-        printf("%c ", l[k]); 
-    }
-    printf("\n"); 
-	// Tipo, ID, POSICAO INICIAL, DIRECAO (0 - X, 1 - Y), TAMANHO, VELOCIDADE
-
+    struct timeval tv1, tv2, diff; 
+    long delta, total = 0; 
 
     // criação de um Socket do cliente
     socket_fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -88,43 +86,98 @@ int main(int argc, char * argv[]) {
 
     // loop infinito no qual as mensagens sao enviadas e recebidas do servidor
     while(1) {
-        printf("Enter message : ");
-        gets(buf);
-		
-		gettimeofday(&tv1, NULL);
-	
+
+        gettimeofday(&tv1, NULL);
+    
         send(socket_fd , l , strlen(l), 0);
         recv(socket_fd, server_msg , MAX_LINE , 0);
 
-		gettimeofday(&tv2, NULL);
-		
-   		diff.tv_sec = tv2.tv_sec - tv1.tv_sec;
-   		diff.tv_usec = tv2.tv_usec + (1000000 - tv1.tv_usec);
+        gettimeofday(&tv2, NULL);
+        
+        diff.tv_sec = tv2.tv_sec - tv1.tv_sec;
+        diff.tv_usec = tv2.tv_usec + (1000000 - tv1.tv_usec);
 
-   		while(diff.tv_usec > 1000000) {
-      		diff.tv_sec++;
-      		diff.tv_usec -= 1000000;
-   		}
-		delta = diff.tv_usec; 
-		char buffer[20]; 
-		sprintf(buffer, "%ld", delta); 
+        while(diff.tv_usec > 1000000) {
+            diff.tv_sec++;
+            diff.tv_usec -= 1000000;
+        }
+        delta = diff.tv_usec; 
+        char buffer[20]; 
+        sprintf(buffer, "%ld", delta); 
 
-        printf("Server eco: ");
+        printf("Atraso do Servidor %ld \n", delta); 
+        total += delta; 
+        printf("Total de Atraso do Servidor %ld\n", total);
+        printf("Mensagem do Servidor: ");
 
-        for(int i = 0; i < strlen(l); i++) {
-            printf("%c ", l[i]);
+        for(int i = 0; i < strlen(server_msg); i++) {
+            printf("%c", server_msg[i]);
+        }
+
+        int mul = 1; 
+        if(strcmp(server_msg, "Acelere") == 0) { 
+            mul = 2; 
+        }
+        else if(strcmp(server_msg, "Freie") == 0) {
+            l[5] = '0';
+
+        }
+        else if(strcmp(server_msg, "Continue") == 0) {
+            mul = 1; 
+
+        }
+        else if(strcmp(server_msg, "Fim") == 0) {
+            sleep(1000000); 
         }
         printf("\n\n");
 
         int vel = (l[5] - '0'); 
         int pos = (l[2] - '0'); 
-        pos = pos + vel;
+        pos = pos + vel*mul;
         l[2] = pos + '0';
+        bzero(server_msg, MAX_LINE); 
+
+        sleep(3); 
            
 
-
-	}
+    }
      
     close(socket_fd);
-    return 0;
+
+
+
+} 
+int main(int argc, char * argv[]) {
+    
+    struct hostent *host_address;
+    struct sockaddr_in socket_address, info; 
+    char buf[MAX_LINE], server_msg[MAX_LINE]; 
+    int socket_fd; 
+    int conn, len_info;
+    char tam[INET_ADDRSTRLEN];
+	struct timeval tv1, tv2, diff; 
+	long delta, total = 0; 
+    char *l; 
+    char c; 
+    int tam_l;
+
+    tam_l = argc - 2;
+    l = calloc(tam_l, sizeof(char)); 
+    l[0] = argv[2][0];
+    l[1] = argv[3][0];
+    l[2] = argv[4][0];
+    l[3] = argv[5][0];
+    l[4] = argv[6][0];
+    l[5] = argv[7][0];
+
+	// Tipo, ID, POSICAO INICIAL, DIRECAO (0 - X, 1 - Y), TAMANHO, VELOCIDADE
+
+    if(l[0] == 'S') {
+        client_tcp(l, argc, argv);
+    }
+    else if(l[0] == 'E' || l[0] == 'C') {
+        client_udp(l, argc, argv); 
+    }
+
+    
 }

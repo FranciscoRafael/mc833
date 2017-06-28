@@ -12,7 +12,8 @@
 #define MAX_PENDING 5
 #define MAX_LINE 256
 #define UDP_PORT 7800
-#define MSG_UDP_TAM 50
+#define MSG_UDP_TAM 256
+
 
 typedef struct Client { 
 
@@ -30,6 +31,7 @@ int existe_carro(Carro *carro, char ID, int n);
 int re_index(Carro *carro, char ID, int n); 
 void imprime(Carro* carro, int n);  
 int calc_colisoes(Carro *carro, int n, char ID); 
+void chamada_udp(); 
 
 int n = 50; 
 Carro carro[50]; 
@@ -45,6 +47,7 @@ int main() {
     char tam[INET_ADDRSTRLEN];
     int resp; 
     fd_set fds, c_fds; 
+    int count = 0; 
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
     if(sockfd == 0) {
@@ -118,10 +121,7 @@ int main() {
                 else { 
                     getpeername(i, (struct sockaddr *)&info, (socklen_t*)&len_info);
                     printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
-                  /*  printf("Mensagem: ");
-                    for(k = 0; k < strlen(buf); k++) { 
-                            printf("%c", buf[k]);   
-                    }*/
+
 					if(existe_carro(carro, buf[1], count_car) == 0) {                     
 				    	if(buf[0] == 'S') { 
 					    	carro[count_car].tipo = buf[0]; 
@@ -140,25 +140,41 @@ int main() {
                         carro[q].velocidade = (buf[5] - '0'); 
 
                     }
-                    if(buf[0] == 'S') {
+                    int pos = (buf[2] - '0');
+                    if(buf[0] == 'S' && pos < 9) {
                         resp = calc_colisoes(carro, count_car, buf[1]); 
                         if(resp == 1) {
-                            printf("\n\nAcelere\n"); 
+                            bzero(buf, MAX_LINE); 
+                            strcpy(buf, "Acelere");
                         }
                         else if(resp == 0) {
-                            printf("\n\nFreie\n"); 
+                            bzero(buf, MAX_LINE); 
+                            strcpy(buf, "Freie"); 
                         }
                         else if(resp == 2) {
-                            printf("\n\nSiga em frente e olhe para o lado\n"); 
+                            bzero(buf, MAX_LINE); 
+                            strcpy(buf, "Continue"); 
                         }
-
+                        else if(resp == 3) { 
+                            bzero(buf, MAX_LINE); 
+                            strcpy(buf, "Ambulancia"); 
+                        }
+                    }
+                    else if(pos > 9) {
+                        bzero(buf, MAX_LINE); 
+                        strcpy(buf, "Fim"); 
                     }
 
                     printf("\n"); 
 					imprime(carro, count_car);
                     write(i, buf, strlen(buf));
-                    printf("Eco enviado\n\n");
+                    printf("Mensagem Enviada\n\n");
                     bzero(buf, MAX_LINE);
+                    if(count == 0) {
+                        //chamada_udp();
+                        count++; 
+                    }
+                    
 
                 }        
 
@@ -173,6 +189,37 @@ int main() {
 
 }
 
+void chamada_udp()  {
+
+    int udpSocket, nBytes;
+    char msg_UDP[MSG_UDP_TAM];
+    struct sockaddr_in serverAddr, clientAddr;
+    struct sockaddr_storage serverStorage;
+    socklen_t addr_size;
+    int i;
+
+    bzero(msg_UDP, MSG_UDP_TAM); 
+    udpSocket = socket(PF_INET, SOCK_DGRAM, 0);
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(UDP_PORT);
+    serverAddr.sin_addr.s_addr = INADDR_ANY;
+    memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);  
+    bind(udpSocket, (struct sockaddr *) &serverAddr, sizeof(serverAddr));
+    addr_size = sizeof serverStorage;
+    nBytes = recvfrom(udpSocket,msg_UDP,MSG_UDP_TAM,0,(struct sockaddr *)&serverStorage, &addr_size);
+    if(msg_UDP[0] == 'E') {
+        bzero(msg_UDP, MSG_UDP_TAM); 
+        strcpy(msg_UDP, "Nova musica: Radiohead: There There "); 
+    } 
+    else if(msg_UDP[0] == 'C') {
+        bzero(msg_UDP, MSG_UDP_TAM); 
+        strcpy(msg_UDP, "Ar Condicionado Ligado");
+    }
+    sendto(udpSocket,msg_UDP,nBytes,0,(struct sockaddr *)&serverStorage,addr_size);
+    bzero(msg_UDP, MSG_UDP_TAM);
+
+}
+
 int calc_colisoes(Carro *carro, int n, char ID) {
 
     int j = re_index(carro, ID, n); 
@@ -184,7 +231,8 @@ int calc_colisoes(Carro *carro, int n, char ID) {
     double ntemp_carro;
     double ntempo_tam_carro; 
     int ndist_origem; 
-
+    int ac = 2; 
+    double temp_des = (double) carro[j].velocidade/ac;
 
     if(carro[j].direcao == 'X')
         op_d = 'Y'; 
@@ -207,10 +255,20 @@ int calc_colisoes(Carro *carro, int n, char ID) {
                 ntemp_carro = (double)(dist_origem/carro[i].velocidade); 
                 ntempo_tam_carro = (double)((carro[i].tamanho + ndist_origem)/carro[i].velocidade);
                 if(temp_carro <= ntempo_tam_carro && temp_carro >= ntemp_carro) { 
-                    return 0; 
+                    if(temp_des >= ntemp_carro) { 
+                        return 3;
+                    }
+                    else if (temp_des < ntemp_carro) {
+                        return 0; 
+                    }
                 }
                 else if(ntemp_carro <= temp_tam_carro && ntemp_carro >= temp_carro) { 
-                    return 0; 
+                    if(temp_des >= ntemp_carro) { 
+                        return 3;
+                    }
+                    else if (temp_des < ntemp_carro) {
+                        return 0; 
+                    } 
                 }
                 else { 
                     return 2; 
