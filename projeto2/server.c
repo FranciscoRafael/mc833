@@ -25,11 +25,11 @@ typedef struct Client {
 
 }Carro;
 
-
+int existe_carro_oposto(Carro *carro, int n, char D); 
 int existe_carro(Carro *carro, char ID, int n); 
 int re_index(Carro *carro, char ID, int n); 
 void imprime(Carro* carro, int n);  
-
+int calc_colisoes(Carro *carro, int n, char ID); 
 
 int n = 50; 
 Carro carro[50]; 
@@ -43,6 +43,7 @@ int main() {
     struct sockaddr_in server, info, client; 
     char buf[MAX_LINE]; 
     char tam[INET_ADDRSTRLEN];
+    int resp; 
     fd_set fds, c_fds; 
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0); 
@@ -117,10 +118,10 @@ int main() {
                 else { 
                     getpeername(i, (struct sockaddr *)&info, (socklen_t*)&len_info);
                     printf("Cliente: %s, %i\n", tam, ntohs(info.sin_port));
-                    printf("Mensagem: ");
+                  /*  printf("Mensagem: ");
                     for(k = 0; k < strlen(buf); k++) { 
                             printf("%c", buf[k]);   
-                    }
+                    }*/
 					if(existe_carro(carro, buf[1], count_car) == 0) {                     
 				    	if(buf[0] == 'S') { 
 					    	carro[count_car].tipo = buf[0]; 
@@ -137,6 +138,19 @@ int main() {
                         q = re_index(carro, buf[1], count_car);  
                         carro[q].pos_inicial = (buf[2] - '0'); 
                         carro[q].velocidade = (buf[5] - '0'); 
+
+                    }
+                    if(buf[0] == 'S') {
+                        resp = calc_colisoes(carro, count_car, buf[1]); 
+                        if(resp == 1) {
+                            printf("\n\nAcelere\n"); 
+                        }
+                        else if(resp == 0) {
+                            printf("\n\nFreie\n"); 
+                        }
+                        else if(resp == 2) {
+                            printf("\n\nSiga em frente e olhe para o lado\n"); 
+                        }
 
                     }
 
@@ -159,6 +173,69 @@ int main() {
 
 }
 
+int calc_colisoes(Carro *carro, int n, char ID) {
+
+    int j = re_index(carro, ID, n); 
+    double temp_carro; 
+    double temp_tam_carro;  
+    int dist_origem = abs(4 - carro[j].pos_inicial); 
+    int i; 
+    char op_d;
+    double ntemp_carro;
+    double ntempo_tam_carro; 
+    int ndist_origem; 
+
+
+    if(carro[j].direcao == 'X')
+        op_d = 'Y'; 
+    else if(carro[j].direcao == 'Y')
+        op_d = 'X';
+
+
+    if(carro[j].velocidade > 0) { 
+
+
+        temp_carro = (double)( dist_origem/carro[j].velocidade);
+        temp_tam_carro = (double)((carro[j].tamanho + dist_origem)/ carro[j].velocidade); 
+    }
+
+    if(existe_carro_oposto(carro, n, op_d)) {
+    
+        for(i = 0; i < n; i++) {
+            if(carro[i].direcao == op_d && (carro[i].velocidade > 0)) {
+                ndist_origem = abs(4- carro[i].pos_inicial);
+                ntemp_carro = (double)(dist_origem/carro[i].velocidade); 
+                ntempo_tam_carro = (double)((carro[i].tamanho + ndist_origem)/carro[i].velocidade);
+                if(temp_carro <= ntempo_tam_carro && temp_carro >= ntemp_carro) { 
+                    return 0; 
+                }
+                else if(ntemp_carro <= temp_tam_carro && ntemp_carro >= temp_carro) { 
+                    return 0; 
+                }
+                else { 
+                    return 2; 
+                }
+           }
+        }
+    }
+    else if(existe_carro_oposto(carro, n, op_d) == 0) {
+
+        return 1; 
+    }
+    return 2;
+
+}
+
+int existe_carro_oposto(Carro *carro, int n, char D) {
+    int i; 
+
+    for(i = 0; i < n; i++) {
+        if(carro[i].direcao == D) {
+            return 1; 
+        }
+    }
+    return 0; 
+}
 void imprime(Carro* carro, int n) { 
 
 	for(int i = 0; i < n; i++) {

@@ -118,8 +118,11 @@ int main(int argc, char * argv[]) {
 
         int vel = (l[5] - '0'); 
         int pos = (l[2] - '0'); 
-        pos = pos + vel; 
+        pos = pos + vel;
         l[2] = pos + '0';
+           
+
+
 	}
      
     close(socket_fd);
