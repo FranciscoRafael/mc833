@@ -9,7 +9,7 @@
 #define LISTEN_PORT 6000
 #define MAX_LINE 256
 #define UDP_PORT 7800
-#define MAX_TAM_UDP 50
+#define MAX_TAM_UDP 1024
 
 void client_udp (char *l, int argc, char *argv[]) {
 
@@ -26,6 +26,7 @@ void client_udp (char *l, int argc, char *argv[]) {
     sendto(clientUDPSocket,l,strlen(l) + 1,0,(struct sockaddr *)&serverAddr,addr_size);
     recvfrom(clientUDPSocket,buf,MAX_TAM_UDP,0,NULL, NULL);
     printf("Mensagem do Servidor: %s\n",buf);
+    close(clientUDPSocket); 
 
 }
 void client_tcp (char *l, int argc, char * argv[]) { 
@@ -105,6 +106,7 @@ void client_tcp (char *l, int argc, char * argv[]) {
         char buffer[20]; 
         sprintf(buffer, "%ld", delta); 
 
+        printf("Carro: %c\n", l[0]);
         printf("Atraso do Servidor %ld \n", delta); 
         total += delta; 
         printf("Total de Atraso do Servidor %ld\n", total);
@@ -127,6 +129,7 @@ void client_tcp (char *l, int argc, char * argv[]) {
 
         }
         else if(strcmp(server_msg, "Fim") == 0) {
+            printf("\nCarro saiu do cruzamento\n"); 
             sleep(1000000); 
         }
         printf("\n\n");

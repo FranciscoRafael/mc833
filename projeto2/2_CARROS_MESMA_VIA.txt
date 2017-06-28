@@ -1,0 +1,184 @@
+-------- SERVER ------------
+
+
+Esperando Conexoes
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 36712
+
+Cliente: 192.168.1.33, 36712
+
+ID: A
+posicao: 0
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+1
+--------------------------------------------------
+Mensagem Enviada
+
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 36714
+
+Cliente: 192.168.1.33, 36714
+
+ID: A
+posicao: 0
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 36712
+
+ID: A
+posicao: 4
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 36714
+
+ID: A
+posicao: 4
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 6
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 36712
+
+ID: A
+posicao: 8
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 6
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 36714
+
+ID: A
+posicao: 8
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 10
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 36712
+
+ID: A
+posicao: 12
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 10
+direcao: Y
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+
+
+
+
+
+---------------------------- CARRO 1  ------------------
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 47 
+Total de Atraso do Servidor 47
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 83 
+Total de Atraso do Servidor 130
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 78 
+Total de Atraso do Servidor 208
+Mensagem do Servidor: Fim
+Carro saiu do cruzamento
+
+
+
+----------------------CARRO 2 ---------------------
+
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 108 
+Total de Atraso do Servidor 108
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 198 
+Total de Atraso do Servidor 306
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 102 
+Total de Atraso do Servidor 408
+Mensagem do Servidor: Acelere

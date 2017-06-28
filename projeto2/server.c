@@ -12,7 +12,7 @@
 #define MAX_PENDING 5
 #define MAX_LINE 256
 #define UDP_PORT 7800
-#define MSG_UDP_TAM 256
+#define MSG_UDP_TAM 1024
 
 
 typedef struct Client { 
@@ -217,6 +217,7 @@ void chamada_udp()  {
     }
     sendto(udpSocket,msg_UDP,nBytes,0,(struct sockaddr *)&serverStorage,addr_size);
     bzero(msg_UDP, MSG_UDP_TAM);
+    close(udpSocket); 
 
 }
 

@@ -1,0 +1,198 @@
+Esperando Conexoes
+Conxeao aceita com sucesso
+IP - Remoto: 31.127.0.0
+Porta - Remota: 53424
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+1
+--------------------------------------------------
+Mensagem Enviada
+
+Conxeao aceita com sucesso
+IP - Remoto: 31.127.0.0
+Porta - Remota: 53424
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 4
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 4
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 1
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 6
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 1
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 6
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 6
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 31.127.0.0, 53424
+
+ID: A
+posicao: 6
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+
+------------------------------ CARRO 1 ----------------------------
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 65 
+Total de Atraso do Servidor 65
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 98 
+Total de Atraso do Servidor 163
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 117 
+Total de Atraso do Servidor 280
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 131 
+Total de Atraso do Servidor 411
+Mensagem do Servidor: Continue
+
+
+-------------------------- Carro 2 -----------------------------------
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 50 
+Total de Atraso do Servidor 50
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 189 
+Total de Atraso do Servidor 239
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 139 
+Total de Atraso do Servidor 378
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 92 
+Total de Atraso do Servidor 470
+Mensagem do Servidor: Continue
+
+

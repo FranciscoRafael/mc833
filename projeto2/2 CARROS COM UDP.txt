@@ -1,0 +1,73 @@
+----------------- CARRO 1 ---------------------------
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 92 
+Total de Atraso do Servidor 92
+Mensagem do Servidor: Acelere
+
+Mensagem do Servidor: Ar Condicionado
+
+Carro: S
+Atraso do Servidor 268 
+Total de Atraso do Servidor 360
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 159 
+Total de Atraso do Servidor 519
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 104 
+Total de Atraso do Servidor 623
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 107 
+Total de Atraso do Servidor 730
+Mensagem do Servidor: Continue
+
+
+------------- CARRO 2 --------------------------- 
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 42 
+Total de Atraso do Servidor 42
+Mensagem do Servidor: Continue
+
+
+Mensagem do Servidor: Nova musica: Radiohead - There There
+
+Carro: S
+Atraso do Servidor 209 
+Total de Atraso do Servidor 251
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 120 
+Total de Atraso do Servidor 371
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 160 
+Total de Atraso do Servidor 531
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 120 
+Total de Atraso do Servidor 651
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 109 
+Total de Atraso do Servidor 760
+Mensagem do Servidor: Continue

@@ -1,0 +1,1085 @@
+Esperando Conexoes
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 37364
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+1
+--------------------------------------------------
+Mensagem Enviada
+
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 37366
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+2
+--------------------------------------------------
+Mensagem Enviada
+
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 37368
+
+Cliente: 192.168.1.33, 37368
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 0
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+3
+--------------------------------------------------
+Mensagem Enviada
+
+Conxeao aceita com sucesso
+IP - Remoto: 192.168.1.33
+Porta - Remota: 37370
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 0
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 0
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 0
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 0
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37368
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 3
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 0
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 1 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 3
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: C
+posicao: 3
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 3
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37368
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 6
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 6
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 6
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 6
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37368
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 9
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 9
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 9
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 9
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37368
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37370
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37364
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+4
+--------------------------------------------------
+Mensagem Enviada
+
+Cliente: 192.168.1.33, 37366
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: C
+posicao: 12
+direcao: Y
+Tamanho: 3
+Velocidade: 3 k/h
+
+ID: A
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+------------------------------------------------------------------------
+
+
+--------------------------Carro 1 --------------------------------------
+
+
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 358 
+Total de Atraso do Servidor 358
+Mensagem do Servidor: Acelere
+
+Carro: S
+Atraso do Servidor 107 
+Total de Atraso do Servidor 465
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 187 
+Total de Atraso do Servidor 652
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 188 
+Total de Atraso do Servidor 840
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 104 
+Total de Atraso do Servidor 944
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 219 
+Total de Atraso do Servidor 1163
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 162 
+Total de Atraso do Servidor 1325
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 162 
+Total de Atraso do Servidor 1487
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 140 
+Total de Atraso do Servidor 1627
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 43 
+Total de Atraso do Servidor 1670
+
+
+
+----------------------------- Carro 2 -----------------------------------
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 80 
+Total de Atraso do Servidor 80
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 200 
+Total de Atraso do Servidor 280
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 109 
+Total de Atraso do Servidor 389
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 166 
+Total de Atraso do Servidor 555
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 130 
+Total de Atraso do Servidor 685
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 108 
+Total de Atraso do Servidor 793
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 152 
+Total de Atraso do Servidor 945
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 135 
+Total de Atraso do Servidor 1080
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 4645 
+Total de Atraso do Servidor 5725
+Mensagem do Servidor: 
+
+------------------------------ Carro 3 -----------------------------
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 109 
+Total de Atraso do Servidor 109
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 110 
+Total de Atraso do Servidor 219
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 100 
+Total de Atraso do Servidor 319
+Mensagem do Servidor: Ambulancia
+
+
+---------------- Carro 4 -------------------------------
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: S
+Atraso do Servidor 80 
+Total de Atraso do Servidor 80
+Mensagem do Servidor: Continue
+
+Carro: S
+Atraso do Servidor 200 
+Total de Atraso do Servidor 280
+Mensagem do Servidor: Freie
+
+Carro: S
+Atraso do Servidor 109 
+Total de Atraso do Servidor 389
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 166 
+Total de Atraso do Servidor 555
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 130 
+Total de Atraso do Servidor 685
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 108 
+Total de Atraso do Servidor 793
+Mensagem do Servidor: Ambulancia
+
+Carro: S
+Atraso do Servidor 152 
+Total de Atraso do Servidor 945
+Mensagem do Servidor: Ambulancia

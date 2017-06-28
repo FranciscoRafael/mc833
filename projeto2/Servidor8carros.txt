@@ -1,0 +1,268 @@
+SERVIDOR EXEMPLO 
+
+
+Cliente: 192.168.1.33, 38044
+
+ID: B
+posicao: 2
+direcao: Y
+Tamanho: 1
+Velocidade: 0 k/h
+
+ID: D
+posicao: 2
+direcao: X
+Tamanho: 2
+Velocidade: 0 k/h
+
+ID: E
+posicao: 12
+direcao: X
+Tamanho: 2
+Velocidade: 4 k/h
+
+ID: C
+posicao: 10
+direcao: Y
+Tamanho: 3
+Velocidade: 2 k/h
+
+ID: A
+posicao: 10
+direcao: X
+Tamanho: 2
+Velocidade: 2 k/h
+
+ID: F
+posicao: 10
+direcao: Y
+Tamanho: 1
+Velocidade: 5 k/h
+
+ID: G
+posicao: 5
+direcao: X
+Tamanho: 1
+Velocidade: 1 k/h
+
+
+
+
+---------------CARRO 1--------------------
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: A
+Atraso do Servidor 115 
+Total de Atraso do Servidor 115
+Mensagem do Servidor: Acelere
+
+Carro: A
+Atraso do Servidor 92 
+Total de Atraso do Servidor 207
+Mensagem do Servidor: Freie
+
+Carro: A
+Atraso do Servidor 130 
+Total de Atraso do Servidor 337
+Mensagem do Servidor: Continue
+
+Carro: A
+Atraso do Servidor 195 
+Total de Atraso do Servidor 532
+Mensagem do Servidor: Ambulancia
+
+Carro: A
+Atraso do Servidor 177 
+Total de Atraso do Servidor 709
+Mensagem do Servidor: Ambulancia
+
+Carro: A
+Atraso do Servidor 147 
+Total de Atraso do Servidor 856
+Mensagem do Servidor: Ambulancia
+
+
+---------------CARRO 2--------------------
+
+
+Carro: B
+Atraso do Servidor 87 
+Total de Atraso do Servidor 87
+Mensagem do Servidor: Freie
+
+
+Carro: B
+Atraso do Servidor 249 
+Total de Atraso do Servidor 543
+Mensagem do Servidor: Continue
+
+Carro: B
+Atraso do Servidor 207 
+Total de Atraso do Servidor 750
+Mensagem do Servidor: Continue
+
+Carro: B
+Atraso do Servidor 127 
+Total de Atraso do Servidor 877
+Mensagem do Servidor: Continue
+
+---------------CARRO 3--------------------
+
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: C
+Atraso do Servidor 111 
+Total de Atraso do Servidor 111
+Mensagem do Servidor: Continue
+
+Carro: C
+Atraso do Servidor 131 
+Total de Atraso do Servidor 242
+Mensagem do Servidor: Freie
+
+Carro: C
+Atraso do Servidor 151 
+Total de Atraso do Servidor 393
+Mensagem do Servidor: Fim
+Carro saiu do cruzamento
+
+
+---------------CARRO 4--------------------
+
+Carro: D
+Atraso do Servidor 53 
+Total de Atraso do Servidor 53
+Mensagem do Servidor: Continue
+
+Carro: D
+Atraso do Servidor 231 
+Total de Atraso do Servidor 284
+Mensagem do Servidor: Continue
+
+Carro: D
+Atraso do Servidor 143 
+Total de Atraso do Servidor 427
+Mensagem do Servidor: Continue
+
+Carro: D
+Atraso do Servidor 137 
+Total de Atraso do Servidor 564
+Mensagem do Servidor: Ambulancia
+
+Carro: D
+Atraso do Servidor 165 
+Total de Atraso do Servidor 729
+Mensagem do Servidor: Ambulancia
+
+
+
+---------------CARRO 5--------------------
+Carro: E
+Atraso do Servidor 136 
+Total de Atraso do Servidor 136
+Mensagem do Servidor: Continue
+
+Carro: E
+Atraso do Servidor 174 
+Total de Atraso do Servidor 310
+Mensagem do Servidor: Ambulancia
+
+Carro: E
+Atraso do Servidor 129 
+Total de Atraso do Servidor 439
+Mensagem do Servidor: Ambulancia
+
+Carro: E
+Atraso do Servidor 143 
+Total de Atraso do Servidor 582
+Mensagem do Servidor: Ambulancia
+
+Carro: E
+Atraso do Servidor 112 
+Total de Atraso do Servidor 694
+Mensagem do Servidor: Ambulancia
+
+
+---------------CARRO 6--------------------
+Correto
+Conexao realizada com sucesso
+IP - Local: 0.0.0.0
+Porta - Local: 65535
+
+Carro: F
+Atraso do Servidor 44 
+Total de Atraso do Servidor 44
+Mensagem do Servidor: Freie
+
+Carro: F
+Atraso do Servidor 115 
+Total de Atraso do Servidor 159
+Mensagem do Servidor: Ambulancia
+
+Carro: F
+Atraso do Servidor 277 
+Total de Atraso do Servidor 436
+Mensagem do Servidor: Ambulancia
+
+
+---------------CARRO 7--------------------
+
+Carro: G
+Atraso do Servidor 85 
+Total de Atraso do Servidor 85
+Mensagem do Servidor: Continue
+
+Carro: G
+Atraso do Servidor 169 
+Total de Atraso do Servidor 254
+Mensagem do Servidor: Ambulancia
+
+Carro: G
+Atraso do Servidor 124 
+Total de Atraso do Servidor 378
+Mensagem do Servidor: Ambulancia
+
+Carro: G
+Atraso do Servidor 198 
+Total de Atraso do Servidor 576
+Mensagem do Servidor: Fim
+Carro saiu do cruzamento
+
+---------------CARRO 8--------------------
+
+
+Carro: H
+Atraso do Servidor 38 
+Total de Atraso do Servidor 38
+Mensagem do Servidor: Continue
+
+Carro: H
+Atraso do Servidor 102 
+Total de Atraso do Servidor 140
+Mensagem do Servidor: Freie
+
+Carro: H
+Atraso do Servidor 163 
+Total de Atraso do Servidor 303
+Mensagem do Servidor: Ambulancia
+
+Carro: H
+Atraso do Servidor 187 
+Total de Atraso do Servidor 490
+Mensagem do Servidor: Ambulancia
+
+Carro: H
+Atraso do Servidor 219 
+Total de Atraso do Servidor 709
+Mensagem do Servidor: Ambulancia
+
+Carro: H
+Atraso do Servidor 169 
+Total de Atraso do Servidor 878
+Mensagem do Servidor: Ambulancia
